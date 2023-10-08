@@ -1,11 +1,11 @@
 {
   "name": "url-to-aws-img",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "convert urls from web into images that are stored in s3 and returns back the s3 urls in return",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -27,5 +27,9 @@
     "aws-sdk": "^2.1472.0",
     "dotenv": "^16.3.1",
     "node-fetch-commonjs": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.3",
+    "typescript": "^5.2.2"
   }
 }

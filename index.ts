@@ -1,13 +1,14 @@
+import { errorException } from "./errorException";
 
 const fs = require('fs') 
 const https = require('https');
 
-      const fetch = require("node-fetch-commonjs");
+      const nodeFetch = require("node-fetch-commonjs");
       const path = require("path");
       require("dotenv").config();
 
 
-const urlToAWS=async(images)=>{
+const urlToAWS=async(images: string[]) : Promise<errorException | string[]>=>{
 
   const AWS = require('aws-sdk'),
       {
@@ -19,13 +20,13 @@ const urlToAWS=async(images)=>{
         region :process.env.AWS_REGION
       });
     
-    let imageArr=[] , fileNames=[] ;
+    let imageArr : string[]=[] ;
       for(let url of images)
       {
       try {
-         let fileName = Math.random()+"unsplash-img.png";
+         let fileName = Math.random()+"-img.png";
 
-        const response = await fetch(url);
+        const response = await nodeFetch(url);
        const buffer = await response.arrayBuffer();
         
         await s3.send(new PutObjectCommand({
@@ -38,9 +39,12 @@ const urlToAWS=async(images)=>{
        }
 
        catch (err) {
-            const error = new Error(err);
+          if(err instanceof Error)
+          {
+            const error = new Error(err.message) as errorException;
             error.code =500;
             return error;
+          }
        }
       };
        
