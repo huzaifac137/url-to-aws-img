@@ -1,0 +1,31 @@
+{
+  "name": "url-to-aws-img",
+  "version": "1.0.2",
+  "description": "convert urls from web into images that are stored in s3 and returns back the s3 urls in return",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huzaifac137/url-to-aws-img.git"
+  },
+  "keywords": [
+    "aws",
+    "url-to-image",
+    "url-to-aws"
+  ],
+  "author": "huzaifa bin shahbaz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huzaifac137/url-to-aws-img/issues"
+  },
+  "homepage": "https://github.com/huzaifac137/url-to-aws-img#readme",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.427.0",
+    "aws-sdk": "^2.1472.0",
+    "dotenv": "^16.3.1",
+    "node-fetch-commonjs": "^3.3.2"
+  }
+}
